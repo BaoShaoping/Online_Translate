@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>限时免费 PDF 翻译</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="workspace">
+      <div class="intro">
+        <p class="eyebrow">面向研究生和科研人员</p>
+        <h1>限时免费 PDF 翻译</h1>
+        <p class="subtitle">上传英文 PDF，生成尽量保留排版的中文译文 PDF。</p>
+      </div>
+
+      <form id="uploadForm" class="panel">
+        <label class="dropzone" for="pdfInput">
+          <input id="pdfInput" name="pdf" type="file" accept="application/pdf,.pdf">
+          <span id="fileName">拖拽 PDF 到这里，或点击上传</span>
+        </label>
+
+        <div class="controls">
+          <label>
+            源语言
+            <select name="source_lang">
+              <option value="en">英文</option>
+            </select>
+          </label>
+          <label>
+            目标语言
+            <select name="target_lang">
+              <option value="zh">简体中文</option>
+            </select>
+          </label>
+        </div>
+
+        <p class="notice">支持 20 页以内、20MB 以内的 PDF。文件仅用于本次翻译服务，原文保留 30 天，到期删除；不用于训练、质量分析、营销、人工审核或其他用途。</p>
+
+        <button id="submitButton" type="submit">开始翻译</button>
+      </form>
+
+      <section id="loginPanel" class="panel hidden">
+        <h2>登录后继续使用</h2>
+        <p>匿名首次免费；第二次使用需要登录。MVP 当前使用临时会话登录。</p>
+        <button id="loginButton" type="button">登录并继续</button>
+      </section>
+
+      <section id="statusPanel" class="panel hidden">
+        <div class="status-head">
+          <h2 id="statusTitle">正在上传文件</h2>
+          <span id="progressText">0%</span>
+        </div>
+        <div class="progress">
+          <div id="progressBar"></div>
+        </div>
+        <p id="statusMessage">准备开始</p>
+        <a id="downloadLink" class="download hidden" href="#">下载译文 PDF</a>
+      </section>
+    </section>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>
